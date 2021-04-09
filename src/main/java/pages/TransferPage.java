@@ -290,6 +290,25 @@ loadtime();
 
 return this;
 }
+
+public TransferPage clicktransferOtherBank_RTGS() throws InterruptedException{
+	clickByXpathExplict(prop.getProperty("click.other.label.rtgs.xpath"));
+
+
+
+return this;
+}
+
+
+public TransferPage clicktransferOtherBank_BEFTN() throws InterruptedException{
+
+	clickByXpathExplict(prop.getProperty("click.other.beftn.xpath"));
+
+		return this;
+		}
+
+
+
 public TransferPage fillOtherBankTransferForm() throws InterruptedException{
 
 
