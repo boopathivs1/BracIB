@@ -211,8 +211,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 			
 			if (i  == 0)
 			{
-//				DbOTP = otp ;
-				DbOTP = decrptedOtp ;
+				DbOTP = otp ;
+				//DbOTP = decrptedOtp ;
 	
 				
 				break;

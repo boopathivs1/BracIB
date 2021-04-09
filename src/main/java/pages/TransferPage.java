@@ -98,6 +98,9 @@ public TransferPage clickCardTab() throws InterruptedException{
 		
 		return this;
 	}
+
+
+
 public TransferPage fillWithinBank_Account_Beneficiary(String accnumber,String nickname) throws InterruptedException{
 	
 	
@@ -146,6 +149,59 @@ public TransferPage fillOtherBank_Account_Beneficiary(String BankNameDropDown,St
 	
 		return this;
 	}
+
+
+
+
+
+public TransferPage fillOtherBank_RTGSAccount_Beneficiary(String BankNameDropDown,String BranchCode,String accnumber,String nickname) throws InterruptedException{
+	clickByXpathExplict(prop.getProperty("click.RTGS.xpath"));
+	scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));
+	dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),BankNameDropDown);
+	
+	dropdownSelection(prop.getProperty("click.branchcode.dropdown.xpath"),BranchCode);
+	
+	String regAccnum=regvalue(accnumber);
+	enterByXpathExplict(prop.getProperty("Enter.within.Acc.number.xpath"),regAccnum);
+	
+//	clickByXpathExplict(prop.getProperty("click.within.bankpayee.xpath"));
+
+	enterByXpathExplict(prop.getProperty("click.within.bankpayee.xpath"),nickname);
+	
+	enterByXpathExplict(prop.getProperty("enter.other.bankpayeeshortname.xpath"),nickname);
+	
+	pageScroll();
+	
+	clickByXpathExplict(prop.getProperty("click.otherbank.sms.xpath"));
+	clickByXpathExplict(prop.getProperty("click.within.beneficiary.xpath"));
+
+	
+		return this;
+	}
+
+
+public TransferPage fillOtherBank_RTGSCard_Beneficiary(String cardnumber,String nickname) throws InterruptedException{
+	clickByXpathExplict(prop.getProperty("click.RTGS.xpath"));
+	scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));
+	
+	String regAccnum=regvalue(cardnumber);
+	enterByXpathExplict(prop.getProperty("Enter.within.Acc.number.xpath"),regAccnum);
+	
+//	clickByXpathExplict(prop.getProperty("click.within.bankpayee.xpath"));
+
+	enterByXpathExplict(prop.getProperty("click.within.bankpayee.xpath"),nickname);
+	
+	enterByXpathExplict(prop.getProperty("enter.other.bankpayeeshortname.xpath"),nickname);
+	
+	pageScroll();
+	
+	clickByXpathExplict(prop.getProperty("click.otherbank.sms.xpath"));
+	clickByXpathExplict(prop.getProperty("click.within.beneficiary.xpath"));
+
+	
+		return this;
+	}
+
 
 
 public TransferPage clickbenbutton() throws InterruptedException{
