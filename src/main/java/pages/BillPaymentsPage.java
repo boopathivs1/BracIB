@@ -20,6 +20,146 @@ public class BillPaymentsPage  extends ProjectWrapp{
 
 	}
 	
+	public BillPaymentsPage clickccLink() throws InterruptedException{
+		clickByXpathExplict(prop.getProperty("click.bill.cc.xpath"));		
+			return this;
+
+	}
+	public void fromAcc(String fromaccount) throws InterruptedException{
+		
+		dropdownSelection(prop.getProperty("click.fundTransfer.fromdropdown.xpath"),fromaccount);	
+		Thread.sleep(2000);
+
+
+		Boolean a=VerifyElementpresentreturn(prop.getProperty("check.available.balance.xpath"));
+		if(a){
+			
+			AccountBalance=getTextByXpath(prop.getProperty("check.available.balance.xpath"));
+			System.out.println(AccountBalance);
+
+			reportStep("Balanec has displaying "+AccountBalance+"", "PASS");
+		}
+		else{
+		booleanResultFail(a, "Balanec has not displaying "+AccountBalance+"");
+
+		}
+
+		
+		
+		
+	}
+	
+	public BillPaymentsPage clickOtherMenu() throws InterruptedException{
+		defaultcontent();
+		//Thread.sleep(10000);
+
+		Boolean a=VerifyElementpresentreturn(prop.getProperty("click.others.menu.xpath"));
+			clickByXpathExplict(prop.getProperty("click.others.menu.xpath"));
+			Thread.sleep(2000);	
+			
+			
+		return this;
+		}
+	public TransactionHistory clickTransactionHistory() throws InterruptedException{
+		//Thread.sleep(20000);
+//			loadtime();
+			Boolean a=VerifyElementpresentreturn(prop.getProperty("click.transactionHistory.menulink.xpath"));
+//			clickByXpathExplict(prop.getProperty("click.transactionHistory.menulink.xpath"));
+			//loadtime();
+//			Thread.sleep(10000);
+			
+			
+		return new TransactionHistory(driver, test);
+		}
+
+
+	public BillPaymentsPage transferownCardSubmForm(String remarks) throws InterruptedException{
+		scrolltoelementJs(prop.getProperty("enter.remarks.own.xpath"));
+			Thread.sleep(1000);
+			//dropdownSelection(prop.getProperty("click.payment.transfer.type.choosen.xpath"),remarks);
+			enterByXpathExplict(prop.getProperty("enter.remarks.own.xpath"),remarks);
+			
+//			clickByXpathExplict(prop.getProperty("click.sms.tab.xpath"));
+			//clickByXpathExplict(".//label[contains(@class,'check')]");
+			
+			
+			clickByXpathExplict(".//label[contains(@class,'check')]");
+			//clickByXpathExplict(".//button[@id='agree']");
+			
+			
+			
+		scrolltoelementJs(prop.getProperty("click.paynow.button.xpath"));
+			clickByXpathExplict(prop.getProperty("click.paynow.button.xpath"));
+
+			
+			scrolltoelementJs(prop.getProperty("own.acc.text.confirm.xpath"));
+			
+			clickByXpathExplict(prop.getProperty("own.acc.text.confirm.xpath"));
+			
+			Thread.sleep(2000);
+//			clickByXpathExplict(prop.getProperty("click.transfer.confirmbutton.xpath"));
+			
+			
+
+				return this;
+			}
+
+	
+	public BillPaymentsPage VerifyTransfer() throws InterruptedException{
+		Thread.sleep(5000);
+		VerifyElementPresent(prop.getProperty("verify.success.Beneficiarty.message.xpath"),"Fund has been Transferred sucessfully","Fund has not been Transferred successfully");
+
+		return this;
+		}
+
+	public BillPaymentsPage transferOwnAccountCardBaracForm(String fromAcc,String amount,String toAcc,String acctype) throws InterruptedException{
+		locateFrame("icanvas");
+		String fromaccount=regvalue(fromAcc);
+		String toaccount=regvalue(toAcc);
+		String amt=regvalue(amount);	
+		
+		
+		
+
+			if(acctype.equalsIgnoreCase("CreditCard")){
+			//	clickByXpathExplict(prop.getProperty("click.ownacc.creditcard.button.xpath"));
+			
+	fromAcc(fromaccount);		
+			
+			scrolltoelementJs(prop.getProperty("click.beneficiary.accnumber.choosen.xpath"));
+//			Thread.sleep(4000);
+			dropdownSelection(prop.getProperty("click.beneficiary.accnumber.choosen.xpath"),toaccount);
+		//	Thread.sleep(2000);
+			scrolltoelementJs(prop.getProperty("click.otherradio.button.xpath"));
+		//	Thread.sleep(2000);
+			clickByXpathExplict(prop.getProperty("click.otherradio.button.xpath"));
+			
+//			enterByXpathExplict(prop.getProperty("other.payamt.xpath"),amt);
+
+			enterByXpathExplict(prop.getProperty("enter.owncard.transamt.xpath"),amt);
+				
+			
+			
+		}
+		else if(acctype.equalsIgnoreCase("Account")){
+			
+			fromAcc(fromaccount);		
+				
+			enterByXpathExplict(prop.getProperty("enter.transaction.amount.xpath"),amt);
+			
+//			dropdownSelection(prop.getProperty("click.beneificiary.acc.firstindex.xpath"),toaccount);
+			
+			dropdownSelectionindex(prop.getProperty("click.beneificiary.acc.firstindex.xpath"),toaccount,2);
+		}
+		else{
+			System.out.println("Transfer type not matched");
+		}
+		return this;
+	}
+
+		
+	
+	
 	
 
 	public BillPaymentsPage locateFrames() throws InterruptedException{
