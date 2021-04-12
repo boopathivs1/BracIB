@@ -236,8 +236,9 @@ return this;
 }
 
 public TransferPage clicktransferOtherBank_RTGS() throws InterruptedException{
+	locateFrame("icanvas");
 	clickByXpathExplict(prop.getProperty("click.other.label.rtgs.xpath"));
-
+defaultcontent();
 
 
 return this;
@@ -769,10 +770,15 @@ scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
 public TransferPage transferOtherOneTimePayForm(String fromAcc,String amount,String toAcc,String acctype) throws InterruptedException{
 	locateFrame("icanvas");
 	clickByXpathExplict(prop.getProperty("click.onetime.pay.menu.xpath"));
+
+
 	String fromaccount=regvalue(fromAcc);
 	String toaccount=regvalue(toAcc);
 	String amt=regvalue(amount);	
-//	clickByXpathExplict(prop.getProperty("click.npsb.xpath"));	
+
+
+	
+	clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 
 	dropdownSelection(prop.getProperty("click.onetime.account.id.choosen.xpath"),fromaccount);	
 	AccountBalance=getTextByXpath(prop.getProperty("check.available.balance.xpath"));
@@ -840,6 +846,139 @@ clickByXpathExplict(prop.getProperty("click.amount.lablel.xpath"));
 	return this;
 }
 
+public TransferPage transferOtherRTGS_BEFTN_OneTimePayForm(String fromAcc,String amount,String toAcc,String acctype,String mode) throws InterruptedException{
+	locateFrame("icanvas");
+	clickByXpathExplict(prop.getProperty("click.onetime.pay.menu.xpath"));
+if(mode.equalsIgnoreCase("rtgs")){
+//clickByXpathExplict(prop.getProperty("click.other.label.rtgs.xpath"));
+Thread.sleep(4000);
+	//clickByXpath(prop.getProperty("click.other.label.rtgs.xpath"));
+	clickByXpathExplict(prop.getProperty("click.other.label.rtgs.xpath"));
+
+
+}
+
+
+//clickByXpath(prop.getProperty("click.creditcard.button.xpath"));
+
+
+
+	String fromaccount=regvalue(fromAcc);
+	String toaccount=regvalue(toAcc);
+	String amt=regvalue(amount);	
+//	clickByXpathExplict(prop.getProperty("click.npsb.xpath"));	
+	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
+	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
+	//clickByXpathExplict(prop.getProperty("click.onetime.account.id.choosen.xpath"));
+
+	defaultcontent();
+
+	locateFrame("icanvas");	
+	dropdownSelection(prop.getProperty("click.onetime.account.id.choosen.xpath"),fromaccount);	
+//	AccountBalance=getTextByXpath(prop.getProperty("check.available.balance.xpath"));
+
+	if(acctype.equalsIgnoreCase("CreditCard")){
+		scrolltoelementJs(prop.getProperty("click.creditcard.button.xpath"));
+
+
+		clickByXpath(prop.getProperty("click.creditcard.button.xpath"));
+		enterByXpath(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
+
+		
+		
+		Thread.sleep(2000);
+	clickByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"));	
+//	pageScroll400();
+//		scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+
+enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+
+
+
+		scrolltoelementJs(prop.getProperty("clicktrans.amount.onepay.xpath"));
+		enterByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+
+		
+//		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+
+clickByXpathExplict(prop.getProperty("click.amount.lablel.xpath"));
+		Thread.sleep(2000);
+scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));		
+		dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
+	
+		dropdownSelection(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
+
+
+		
+/*		
+		enterByXpathExplict(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
+		enterByXpathExplict(prop.getProperty("enter.onepay.benename.xpath"),"test");
+		dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM Bank");
+		
+		
+		
+		
+	//	clickByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"));
+		pageScroll();
+		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);*/
+	}
+	else if(acctype.equalsIgnoreCase("Account")){
+
+		enterByXpath(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
+
+		Thread.sleep(2000);
+		defaultcontent();
+
+		locateFrame("icanvas");	
+		
+		//clickByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"));	
+
+	//	clickByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"));
+		
+	//enterByXpathExplict(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+	defaultcontent();
+
+	locateFrame("icanvas");	
+	
+	dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
+	dropdownSelection(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
+	defaultcontent();
+
+	locateFrame("icanvas");	
+//	enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+
+enterByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+
+//clickByXpathExplict(prop.getProperty("click.amount.lablel.xpath"));
+clickByXpath(prop.getProperty("click.amount.lablel.xpath"));
+Thread.sleep(2000);
+
+	
+	
+	
+	//		clickByXpath(prop.getProperty("enter.input.acc.number.xpath"));	
+	//	scrolltoelementJs(prop.getProperty("enter.input.acc.number.xpath"));
+		
+
+//enterByXpathExplict(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
+//		scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+//scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+//		enterByXpathExplict(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+		
+	//		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+		
+		
+		
+		pageScroll();
+//		enter.input.acc.number.xpath
+	}
+	else{
+		System.out.println("Transfer type not matched");
+	}
+	return this;
+}
 
 public TransferPage baractransferOneTimePayForm(String fromAcc,String amount,String toAcc,String acctype) throws InterruptedException{
 	locateFrame("icanvas");
@@ -1202,6 +1341,54 @@ public TransferPage transferWithinSubmitForm(String remarks) throws InterruptedE
 
 	
 	Thread.sleep(2000);
+	
+	
+
+		return this;
+	}
+
+public TransferPage transferothercardRTGSSubmitForm(String remarks) throws InterruptedException{
+	
+	defaultcontent();
+	locateFrame("icanvas");
+
+	
+//	scrolltoelementJs(prop.getProperty("enter.remarks.own.xpath"));
+	Thread.sleep(1000);
+	enterByXpath(prop.getProperty("enter.remarks.own.xpath"),remarks);
+	
+//	enterByXpathExplict(prop.getProperty("enter.remarks.own.xpath"),remarks);
+	
+//scrolltoelementJs(prop.getProperty("click.payment.transfer.type.choosen.xpath"));
+	//Thread.sleep(1000);
+	//dropdownSelection(prop.getProperty("click.payment.transfer.type.choosen.xpath"),remarks);
+	Thread.sleep(2000);
+//enable below 
+//	scrolltoelementJs(prop.getProperty("click.sms.within.tab.xpath"));
+//clickByXpath(prop.getProperty("click.sms.within.tab.xpath"));
+	defaultcontent();
+	locateFrame("icanvas");
+
+clickByXpath(prop.getProperty("click.agreecheckbox.xpath"));
+	
+	loadtime();
+	//scrolltoelementJs(prop.getProperty("click.agreebtn.xpath"));
+	
+//	clickByXpathExplict(prop.getProperty("click.agreebtn.xpath"));
+	scrolltoelementJs(prop.getProperty("click.paynow.button.xpath"));
+	
+	
+	clickByXpath(prop.getProperty("click.paynow.button.xpath"));
+//	clickByXpathExplict(prop.getProperty("click.paynow.button.xpath"));
+
+	scrolltoelementJs(prop.getProperty("own.acc.text.confirm.xpath"));
+	
+	clickByXpathExplict(prop.getProperty("own.acc.text.confirm.xpath"));
+
+//	clickByXpathExplict(prop.getProperty("withincard.confirm.button.xpath"));
+	
+	Thread.sleep(2000);
+//	clickByXpathExplict(prop.getProperty("click.transfer.confirmbutton.xpath"));
 	
 	
 

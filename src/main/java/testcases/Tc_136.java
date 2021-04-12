@@ -35,11 +35,11 @@ public class Tc_136  extends ProjectWrapp {
 	.clickTransferMenu()
 	.clicktransferOtherBank()
 	
-	.clicktransferOtherBank_RTGS()
-	
-	.transferOtherOneTimePayForm(fromACC, amount, toAccount, acctype)
+	//.clicktransferOtherBank_RTGS()
+	.transferOtherRTGS_BEFTN_OneTimePayForm(fromACC, amount, toAccount, acctype,"rtgs")
 	//.transferOtherBankOnTimePayForm(fromACC, amount, toAccount, acctype)
-	.transferothercardSubmitForm(Remarks)
+
+	.transferothercardRTGSSubmitForm(Remarks)
 	
 	//.transferWithinSubmitForm(Remarks)
 .otpsubmit()
