@@ -1289,7 +1289,11 @@ return B;
 				if(browser.equalsIgnoreCase("chrome")){
 					//System.setProperty("webdriver.chrome.driver", "./drivers/chromedrivers.exe");
 
+<<<<<<< HEAD
 					System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver89.exe");
+=======
+					System.setProperty("webdriver.chrome.driver", "./drivers/chromedrivers.exe");
+>>>>>>> branch 'master' of https://github.com/boopathivs1/BracIB
 
 					//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver85.exe");
 
@@ -2038,9 +2042,9 @@ public void clickByXpathExplict(String xpathVal) throws InterruptedException {
 	}
 	try {
 		//Thread.sleep(2000);
-		readywithtime(xpathVal);
+	//	readywithtime(xpathVal);
 	//	readystate();
-		jqueryload();
+	jqueryload();
 	} catch (Exception e1) {
 		//reportStep("jquery wait has supporting", "FAIL");
 		
@@ -4116,7 +4120,7 @@ WebElement element=wait.until(ExpectedConditions.elementToBeClickable(By.xpath(x
 	public void clickByXpath(String xpathVal) {
 		try{
 			driver.findElement(By.xpath(xpathVal)).click();
-			reportStep("The element : "+xpathVal+" is clicked.", "PASS");
+//			reportStep("The element : "+xpathVal+" is clicked.", "PASS","");
 		} 
 		
 		
