@@ -36,9 +36,9 @@ public class Tc_125  extends ProjectWrapp {
 	.clicktransferOtherBank()
 	
 	
-	.transferOtherBeftnOneTimePayForm(fromACC, amount, toAccount, acctype)
+	.transferOther_BEFTN_OneTimePayForm(fromACC, amount, toAccount, acctype,"beftn")
 	//.transferOtherBankOnTimePayForm(fromACC, amount, toAccount, acctype)
-	.transferothercardSubmitForm(Remarks)
+	.transferothercardBeftnSubmitForm(Remarks)
 	
 	//.transferWithinSubmitForm(Remarks)
 .otpsubmit()

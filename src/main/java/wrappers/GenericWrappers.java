@@ -4279,21 +4279,25 @@ public void dropdownSelection(String xpath1,String xpath2) throws InterruptedExc
 }
 
 public void dropdownSelect(String xpath1,String xpath2) throws InterruptedException{ 
-<<<<<<< HEAD
-	clickByXpath(xpath1);
-
-	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
-
-}
-=======
->>>>>>> branch 'master' of https://github.com/boopathivs1/BracIB
 
 	clickByXpath(xpath1);
-	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
 	
 
+	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
 
 }
+
+public void dropdownSel(String xpath1,String xpath2) throws InterruptedException{ 
+
+	clickByXpath(xpath1);
+	Thread.sleep(2000);
+	enterByXpath("(.//div[@class='chosen-search']//input)[1]", xpath2);
+	Thread.sleep(2000);
+	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
+
+}
+	
+
 
 public void dropdowncitySelection(String xpath1,String xpath2) throws InterruptedException{ 
 	clickByXpathExplict(xpath1);
