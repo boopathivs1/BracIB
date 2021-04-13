@@ -4274,7 +4274,14 @@ public void dropdownSelection(String xpath1,String xpath2) throws InterruptedExc
 
 }
 
+public void dropdownSelect(String xpath1,String xpath2) throws InterruptedException{ 
 
+	clickByXpath(xpath1);
+	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
+	
+
+
+}
 
 public void dropdowncitySelection(String xpath1,String xpath2) throws InterruptedException{ 
 	clickByXpathExplict(xpath1);

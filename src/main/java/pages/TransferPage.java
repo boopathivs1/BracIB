@@ -859,7 +859,6 @@ Thread.sleep(4000);
 }
 
 
-//clickByXpath(prop.getProperty("click.creditcard.button.xpath"));
 
 
 
@@ -870,15 +869,13 @@ Thread.sleep(4000);
 	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 	//clickByXpathExplict(prop.getProperty("click.onetime.account.id.choosen.xpath"));
-
-	defaultcontent();
-
-	locateFrame("icanvas");	
-	dropdownSelection(prop.getProperty("click.onetime.account.id.choosen.xpath"),fromaccount);	
+Thread.sleep(4000);
+	//loadtime();
+	dropdownSelect(prop.getProperty("click.onetime.account.id.choosen.xpath"),fromaccount);	
 //	AccountBalance=getTextByXpath(prop.getProperty("check.available.balance.xpath"));
 
 	if(acctype.equalsIgnoreCase("CreditCard")){
-		scrolltoelementJs(prop.getProperty("click.creditcard.button.xpath"));
+	//	scrolltoelementJs(prop.getProperty("click.creditcard.button.xpath"));
 
 
 		clickByXpath(prop.getProperty("click.creditcard.button.xpath"));
@@ -890,24 +887,24 @@ Thread.sleep(4000);
 	clickByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"));	
 //	pageScroll400();
 //		scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
-scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+//scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
 
 enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
 
 
 
-		scrolltoelementJs(prop.getProperty("clicktrans.amount.onepay.xpath"));
+		//scrolltoelementJs(prop.getProperty("clicktrans.amount.onepay.xpath"));
 		enterByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
 
 		
 //		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
 
-clickByXpathExplict(prop.getProperty("click.amount.lablel.xpath"));
+clickByXpath(prop.getProperty("click.amount.lablel.xpath"));
 		Thread.sleep(2000);
-scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));		
-		dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
+//scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));		
+		dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
 	
-		dropdownSelection(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
+		dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
 
 
 		
@@ -942,8 +939,8 @@ enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj"
 
 	locateFrame("icanvas");	
 	
-	dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
-	dropdownSelection(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
+	dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
+	dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
 	defaultcontent();
 
 	locateFrame("icanvas");	
