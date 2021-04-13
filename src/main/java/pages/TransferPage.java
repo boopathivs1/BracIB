@@ -362,7 +362,7 @@ booleanResultFail(a, "Balanec has not displaying "+AccountBalance+"");
 
 if(acctype.equalsIgnoreCase("CreditCard")){
 		
-		
+		System.out.println("enter");
 		scrolltoelementJs(prop.getProperty("click.creditcard.button.xpath"));
 		clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 		//scrolltoelementJs(prop.getProperty("enter.transaction.amount.xpath"));
@@ -1721,12 +1721,10 @@ public TransferPage transferothercardBeftnSubmitForm(String remarks) throws Inte
 
 clickByXpath(prop.getProperty("click.agreecheckbox.xpath"));
 	
-	loadtime();
 	//scrolltoelementJs(prop.getProperty("click.agreebtn.xpath"));
 	
 //	clickByXpathExplict(prop.getProperty("click.agreebtn.xpath"));
 	scrolltoelementJs(prop.getProperty("click.paynow.xpath"));
-	
 	Thread.sleep(3000);
 	clickByXpath(prop.getProperty("click.paynow.xpath"));
 //	clickByXpathExplict(prop.getProperty("click.paynow.button.xpath"));
