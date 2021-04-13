@@ -40,7 +40,7 @@ public class Tc_126  extends ProjectWrapp {
 	.transferOther_BEFTN_OneTimePayForm(fromACC, amount, toAccount, acctype,"beftn")
 
 //	.transferWithinBaracOnTimePayForm(fromACC, amount, toAccount, acctype)
-	.transferothercardSubmitForm(Remarks)
+	.transferothercardBeftnSubmitForm(Remarks)
 //	.transferWithinSubmitForm(Remarks)
 	.otpsubmit()
 	.VerifyTransfer()
