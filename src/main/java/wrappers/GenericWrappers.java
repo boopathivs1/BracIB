@@ -1289,11 +1289,11 @@ return B;
 				if(browser.equalsIgnoreCase("chrome")){
 					//System.setProperty("webdriver.chrome.driver", "./drivers/chromedrivers.exe");
 
-<<<<<<< HEAD
+
 					System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver89.exe");
-=======
+
 					System.setProperty("webdriver.chrome.driver", "./drivers/chromedrivers.exe");
->>>>>>> branch 'master' of https://github.com/boopathivs1/BracIB
+
 
 					//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver85.exe");
 
@@ -4278,6 +4278,12 @@ public void dropdownSelection(String xpath1,String xpath2) throws InterruptedExc
 
 }
 
+public void dropdownSelect(String xpath1,String xpath2) throws InterruptedException{ 
+	clickByXpath(xpath1);
+
+	clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'"+xpath2+"')]");
+
+}
 
 
 public void dropdowncitySelection(String xpath1,String xpath2) throws InterruptedException{ 
@@ -5331,23 +5337,6 @@ catch (Exception e) {
 
 
 
-
-public WebElement fluentwaitsClick(By locator)
-{
-  Wait wait = new FluentWait(driver)
-      .withTimeout(60, TimeUnit.MILLISECONDS)
-      .pollingEvery(4, TimeUnit.MILLISECONDS)
-      .ignoring(NoSuchElementException.class);
-  WebElement element = (WebElement) wait.until(new Function<WebDriver, WebElement>() 
-  {
-
-    public WebElement apply(WebDriver driver)
-    {
-      return driver.findElement(locator);
-    }
-  });
-  return element;
-}
 
 
 
