@@ -1477,6 +1477,35 @@ catch (Exception e) {
 
 }
 	}	
+
+	public void scrollelementJs(String xpathtext) throws InterruptedException{
+	//	loadingMethod(xpathtext);
+		
+		
+		
+try{
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	Thread.sleep(2000);
+	WebElement Element = driver.findElement(By.xpath(xpathtext));
+
+	js.executeScript("arguments[0].scrollIntoView();", Element);
+
+
+
+reportStep("Scroll to element: "+xpathtext+" is clicked.", "PASS");
+	
+	
+	
+	}
+catch (Exception e) {
+
+	reportStep("Unable to scroll to this element: "+xpathtext+".", "FAIL");
+
+}
+	}	
+
+	
 	public void MouseHoverByXpathExplict(String xpathVal) {
 		WebDriverWait wait;
 //		waitForElement(xpathVal,60);

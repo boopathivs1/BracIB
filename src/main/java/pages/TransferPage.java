@@ -960,6 +960,12 @@ enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj"
 clickByXpath(prop.getProperty("click.amount.lablel.xpath"));
 		Thread.sleep(2000);
 //scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));		
+		
+		Thread.sleep(2000);
+scrollelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));		
+//pageScroll();		
+Thread.sleep(5000);
+
 		dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
 	
 		dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
@@ -996,6 +1002,11 @@ enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj"
 	defaultcontent();
 
 	locateFrame("icanvas");	
+
+
+	scrollelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
+	Thread.sleep(5000);
+	
 	
 	dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
 	dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
