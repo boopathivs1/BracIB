@@ -362,7 +362,7 @@ booleanResultFail(a, "Balanec has not displaying "+AccountBalance+"");
 
 if(acctype.equalsIgnoreCase("CreditCard")){
 		
-		
+		System.out.println("enter");
 		scrolltoelementJs(prop.getProperty("click.creditcard.button.xpath"));
 		clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 		//scrolltoelementJs(prop.getProperty("enter.transaction.amount.xpath"));
@@ -1063,7 +1063,7 @@ clickByXpathExplict(prop.getProperty("click.other.beftn.xpath"));
 	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 	//clickByXpathExplict(prop.getProperty("click.creditcard.button.xpath"));
 	//clickByXpathExplict(prop.getProperty("click.onetime.account.id.choosen.xpath"));
-Thread.sleep(4000);
+Thread.sleep(6000);
 	//loadtime();
 	dropdownSelect(prop.getProperty("click.onetime.account.id.choosen.xpath"),fromaccount);	
 //	AccountBalance=getTextByXpath(prop.getProperty("check.available.balance.xpath"));
@@ -1075,46 +1075,55 @@ Thread.sleep(4000);
 		clickByXpath(prop.getProperty("click.creditcard.button.xpath"));
 		enterByXpath(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
 
-		
-		
 		Thread.sleep(2000);
-	clickByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"));	
-//	pageScroll400();
+		defaultcontent();
+
+		locateFrame("icanvas");	
+		
+		//clickByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"));	
+
+	//	clickByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"));
+		
+	//enterByXpathExplict(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
+	defaultcontent();
+
+	locateFrame("icanvas");	
+	clickByXpath(prop.getProperty("click.BankName.dropdown.xpath"));
+	Thread.sleep(6000);
+	//clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'EXIM BANK')]");
+	dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
+	Thread.sleep(6000);
+	dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
+	//dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"ADAMPUR");
+	defaultcontent();
+
+	locateFrame("icanvas");	
+//	enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+	Thread.sleep(3000);
+enterByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
+
+//clickByXpathExplict(prop.getProperty("click.amount.lablel.xpath"));
+clickByXpath(prop.getProperty("click.amount.lablel.xpath"));
+Thread.sleep(2000);
+
+	
+	
+	
+	//		clickByXpath(prop.getProperty("enter.input.acc.number.xpath"));	
+	//	scrolltoelementJs(prop.getProperty("enter.input.acc.number.xpath"));
+		
+
+//enterByXpathExplict(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
 //		scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
 //scrolltoelementJs(prop.getProperty("enter.otherbank.beneficiary.name.xpath"));
-
-enterByXpath(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
-
-
-
-		//scrolltoelementJs(prop.getProperty("clicktrans.amount.onepay.xpath"));
-		enterByXpath(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
-
+//		enterByXpathExplict(prop.getProperty("enter.otherbank.beneficiary.name.xpath"),"testgj");
 		
-//		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
-
-clickByXpath(prop.getProperty("click.amount.lablel.xpath"));
-		Thread.sleep(2000);
-//scrolltoelementJs(prop.getProperty("click.BankName.dropdown.xpath"));		
-		clickByXpath(prop.getProperty("click.BankName.dropdown.xpath"));
-		Thread.sleep(6000);
-		//clickByXpath(".//li[contains(@class,'active-result')][contains(text(),'EXIM BANK')]");
-		dropdownSelect(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM BANK");
-		Thread.sleep(6000);
-		dropdownSelect(prop.getProperty("click.branchcode.dropdown.xpath"),"TAKERHAT");
-
-		
-/*		
-		enterByXpathExplict(prop.getProperty("enter.input.acc.number.xpath"),toaccount);
-		enterByXpathExplict(prop.getProperty("enter.onepay.benename.xpath"),"test");
-		dropdownSelection(prop.getProperty("click.BankName.dropdown.xpath"),"EXIM Bank");
+	//		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);
 		
 		
 		
-		
-	//	clickByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"));
 		pageScroll();
-		enterByXpathExplict(prop.getProperty("clicktrans.amount.onepay.xpath"),amt);*/
 	}
 	else if(acctype.equalsIgnoreCase("Account")){
 
@@ -1732,13 +1741,11 @@ public TransferPage transferothercardBeftnSubmitForm(String remarks) throws Inte
 
 clickByXpath(prop.getProperty("click.agreecheckbox.xpath"));
 	
-	loadtime();
 	//scrolltoelementJs(prop.getProperty("click.agreebtn.xpath"));
 	
 //	clickByXpathExplict(prop.getProperty("click.agreebtn.xpath"));
-	scrolltoelementJs(prop.getProperty("click.paynow.xpath"));
-	
-	Thread.sleep(3000);
+	//scrolltoelementJs(prop.getProperty("click.paynow.xpath"));
+	//Thread.sleep(3000);
 	clickByXpath(prop.getProperty("click.paynow.xpath"));
 //	clickByXpathExplict(prop.getProperty("click.paynow.button.xpath"));
 
